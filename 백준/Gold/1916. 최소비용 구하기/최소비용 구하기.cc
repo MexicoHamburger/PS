@@ -23,7 +23,6 @@ int main()
 
     // {des, cost}
     vector<vector<pii>> graph(n+1);
-    vector<int> vis(n+1, 0);
     vector<int> dist(n+1, INF);
 
     int src, des, val;
@@ -46,10 +45,9 @@ int main()
         int u = cur.first;
         int cost = cur.second;
         
-        if (vis[u]) {
+        if (dist[u] < cost) {
             continue;
         }
-        vis[u] = 1;
         for (int i = 0 ; i < graph[u].size() ; i++) {
             int v = graph[u][i].first;
             int w = graph[u][i].second;
